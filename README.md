@@ -9,9 +9,6 @@ dokku apps:create drone
 dokku storage:mount drone /var/run/docker.sock:/var/run/docker.sock
 dokku storage:mount drone /var/lib/drone:/data
 
-dokku proxy:ports-add drone http:80:80
-dokku proxy:ports-add drone http:443:443
-
 dokku config:set drone DRONE_BITBUCKET_CLIENT_ID={% your-bitbucket-key %}
 dokku config:set drone DRONE_BITBUCKET_CLIENT_SECRET={% your-bitbucket-secret %}
 dokku config:set drone DRONE_RUNNER_CAPACITY=2
